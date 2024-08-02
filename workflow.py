@@ -127,7 +127,7 @@ def check_refined_code_executable(refined_code, model_type, query_type, workspac
 if __name__ == "__main__":
 
     workspace_base = args.workspace
-    data_path = '/home/zhoupeng/project/LLM/agent/plotagent/benchmark/newPlotAgent/plot-agent/benchmark_data/'
+    data_path = './benchmark_data'
     # open the json file 
     data = json.load(open(f'{data_path}/benchmark_instructions.json'))
     

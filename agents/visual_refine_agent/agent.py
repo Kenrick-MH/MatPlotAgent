@@ -54,6 +54,6 @@ class VisualRefineAgent:
                                     },
                                     ]
                         })
-        visual_feedback = completion_for_4v(messages, 'gpt-4-vision-preview')
+        visual_feedback = completion_for_4v(messages, 'gpt-4o')
 
         return visual_feedback
