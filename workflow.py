@@ -126,28 +126,40 @@ def check_refined_code_executable(refined_code, model_type, query_type, workspac
 
 if __name__ == "__main__":
 
-    workspace_base = args.workspace
-    data_path = './benchmark_data'
-    # open the json file 
-    data = json.load(open(f'{data_path}/benchmark_instructions.json'))
+    # workspace_base = args.workspace
+    # data_path = './benchmark_data'
+    # # open the json file 
+    # data = json.load(open(f'{data_path}/benchmark_instructions.json'))
     
-    for item in tqdm(data):
-        novice_instruction = item['simple_instruction']
-        expert_instruction = item['expert_instruction']
-        example_id = item['id']
-        directory_path = f'{workspace_base}/example_{example_id}'
+    # for item in tqdm(data):
+    #     novice_instruction = item['simple_instruction']
+    #     expert_instruction = item['expert_instruction']
+    #     example_id = item['id']
+    #     directory_path = f'{workspace_base}/example_{example_id}'
 
-        # Check if the directory already exists
-        if not os.path.exists(directory_path):
-            # If it doesn't exist, create the directory
-            os.mkdir(directory_path)
-            print(f"Directory '{directory_path}' created successfully.")
-            input_path = f'{data_path}/data/{example_id}'
-            if os.path.exists(input_path):
-                #全部copy到f"Directory '{directory_path}'
-                os.system(f'cp -r {input_path}/* {directory_path}')
-        else:
-            print(f"Directory '{directory_path}' already exists.")
-            continue
-        logging.basicConfig(level=logging.INFO, filename=f'{directory_path}/workflow.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        mainworkflow(expert_instruction, novice_instruction, workspace=directory_path)
+    #     # Check if the directory already exists
+    #     if not os.path.exists(directory_path):
+    #         # If it doesn't exist, create the directory
+    #         os.mkdir(directory_path)
+    #         print(f"Directory '{directory_path}' created successfully.")
+    #         input_path = f'{data_path}/data/{example_id}'
+    #         if os.path.exists(input_path):
+    #             #全部copy到f"Directory '{directory_path}'
+    #             os.system(f'cp -r {input_path}/* {directory_path}')
+    #     else:
+    #         print(f"Directory '{directory_path}' already exists.")
+    #         continue
+    #     logging.basicConfig(level=logging.INFO, filename=f'{directory_path}/workflow.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    #     mainworkflow(expert_instruction, novice_instruction, workspace=directory_path)
+
+    workspace = args.workspace
+    data = json.load(open('./result/custom_example/custom_instr.json'))
+    # item = tqdm(data)
+    novice_instruction = data['simple_instruction']
+    expert_instruction = data['expert_instruction']
+
+    logging.basicConfig(level=logging.INFO, filename=f'{workspace}/workflow.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    mainworkflow(expert_instruction, novice_instruction, workspace)
+
+    
+

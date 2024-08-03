@@ -1,0 +1,4 @@
+{
+    "simple_instruction": "I have a sales recap stored in 'Sales Invoice ERP Mei.csv', which has the fields: [Sr,Name,Docstatus,Customer,Type of Invoice,Grand Total,Status,Currency,Grand Total (Company Currency),Outstanding Amount,Payment Due Date,Integrator ID,Party Account Currency,POS Profile,Date,Price List Rate,Item Name,Item,Sales Invoice]. Now, create a plot to vizualize the money gained each day by summing the entries in 'Grand Total' for each day, and create a scatter plot to visualize the fluctuating trend. Also, adjust the scales for the grand total so the numbers are in the order of hundreds",
+    "expert_instruction": " "
+}
